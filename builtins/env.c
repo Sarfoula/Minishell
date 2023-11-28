@@ -6,21 +6,19 @@
 /*   By: yallo <yallo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:10:15 by yallo             #+#    #+#             */
-/*   Updated: 2023/11/27 15:47:11 by yallo            ###   ########.fr       */
+/*   Updated: 2023/11/28 16:13:11 by yallo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	env(void)
+int	env(void)
 {
-	char *path = getenv("HOME");
+	size_t		i;
+	extern char	**environ;
 
-	printf("%s\n", path);
-}
-
-int main()
-{
-	env();
+	i = 0;
+	while (environ[i])
+		printf("%s\n", environ[i++]);
 	return (0);
 }
